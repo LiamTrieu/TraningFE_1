@@ -1,0 +1,16 @@
+<div class="container">
+  <h2 class="text-center">Trang chủ</h2>
+  <div class="row">
+    <div class="card col-4" style="width: 17rem" ng-repeat="std in students">
+      <div class="card-body">
+        <h5 class="card-title">ID: {{std.id}}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Name: {{std.name}}</h6>
+        <p class="card-text">Tuổi: {{std.age}}</p>
+
+        <p ng-if="std.gender">Nam</p>
+        <p ng-if="!std.gender">Nữ</p>
+        <p>Địa chỉ: {{std.address}}</p>
+      </div>
+    </div>
+  </div>
+</div>

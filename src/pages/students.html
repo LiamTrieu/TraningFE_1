@@ -1,0 +1,73 @@
+<div class="container">
+  <h2 class="text-center">Sinh viên Page</h2>
+
+  <form name="myForm">
+    ID <input type="text" ng-model="stdShow.id" required /> <br />
+    <br />
+    Name <input type="text" ng-model="stdShow.name" required /><br />
+    <br />
+    Age <input type="number" ng-model="stdShow.age" required /><br />
+    <br />
+    Address <input type="text" ng-model="stdShow.address" required /><br />
+    <br />
+    Gender
+    <input type="radio" ng-model="stdShow.gender" ng-value="true" />
+    Nam
+    <input type="radio" ng-model="stdShow.gender" ng-value="false" />
+    Nữ <br />
+    <br />
+    <button
+      type="submit"
+      class="btn btn-success"
+      ng-click="addStd(stdShow.id, myForm.$valid)">
+      Add
+    </button>
+    <button
+      type="submit"
+      class="btn btn-success"
+      ng-click="updateStd(myForm.$valid)">
+      Update
+    </button>
+  </form>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Age</th>
+        <th scope="col">Gender</th>
+        <th scope="col">Address</th>
+        <th scope="col">Function</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="std in students">
+        <td>{{std.id}}</td>
+        <td>{{std.name}}</td>
+        <td>{{std.age}}</td>
+        <td ng-if="std.gender">Nam</td>
+        <td ng-if="!std.gender">Nữ</td>
+        <td>{{std.address}}</td>
+        <td>
+          <div
+            class="btn-group"
+            role="group"
+            aria-label="Basic mixed styles example">
+            <button
+              type="button"
+              class="btn btn-success"
+              ng-click="showStd($index)">
+              Xem
+            </button>
+            <button
+              type="button"
+              class="btn btn-danger"
+              ng-click="delteStd($index)">
+              Xóa
+            </button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
